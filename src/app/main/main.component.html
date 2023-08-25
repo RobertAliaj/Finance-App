@@ -1,0 +1,66 @@
+<mat-drawer-container class="full-height" autosize>
+
+    <mat-drawer #drawer mode="side" class="mat-side-nav" [opened]="true">
+        <ul>
+            <li routerLink="/dashboard">
+                <mat-icon>bar_chart_4_bars</mat-icon>
+                <span> Dashboard</span>
+            </li>
+
+            <li routerLink="/dashboard">
+                <mat-icon>savings</mat-icon>
+                <span> Ersparnisse</span>
+            </li>
+
+            <li routerLink="/dashboard">
+                <mat-icon>today</mat-icon>
+                <span>Aktueller Monat</span>
+            </li>
+        </ul>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <mat-toolbar color="primary" class="toolbar">
+            <button mat-icon-button (click)="drawer.toggle()" class="example-icon">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>My App</span>
+        </mat-toolbar>
+
+        <span>Hauptkontent</span>
+
+
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+<!-- <app-dashboard></app-dashboard>
+
+<mat-drawer-container class="example-container" autosize>
+    
+    
+    <mat-drawer #drawer mode="side" class="mat-side-nav">
+
+        <ul>
+            <li>Dashboard</li>
+
+            <li>Aktueller Monat</li>
+        </ul>
+
+    </mat-drawer>
+
+
+
+
+
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="drawer.toggle()" class="example-icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span>My App</span>
+    </mat-toolbar>
+
+</mat-drawer-container> -->

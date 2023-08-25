@@ -1,0 +1,26 @@
+.mat-side-nav {
+    width: 200px;
+    height: 100%;
+}
+
+.toolbar{
+    height: 56px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 16px 0;
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        cursor: pointer;
+        padding: 16px 8px;
+
+        &:hover{
+            background-color: rgb(0 0 0 / 8%);
+        }
+    }
+}
