@@ -2,12 +2,12 @@
 
     <mat-drawer #drawer mode="side" class="mat-side-nav" [opened]="true">
         <ul>
-            <li routerLink="/dashboard">
+            <li routerLink="/">
                 <mat-icon>bar_chart_4_bars</mat-icon>
                 <span> Dashboard</span>
             </li>
 
-            <li routerLink="/dashboard">
+            <li routerLink="/savings">
                 <mat-icon>savings</mat-icon>
                 <span> Ersparnisse</span>
             </li>
@@ -27,40 +27,11 @@
             <span>My App</span>
         </mat-toolbar>
 
-        <span>Hauptkontent</span>
 
+        <div class="content-container">
+            <!-- The respective components are displayed here -->
+            <router-outlet></router-outlet>
+        </div>
 
     </mat-drawer-content>
 </mat-drawer-container>
-
-
-
-
-<!-- <app-dashboard></app-dashboard>
-
-<mat-drawer-container class="example-container" autosize>
-    
-    
-    <mat-drawer #drawer mode="side" class="mat-side-nav">
-
-        <ul>
-            <li>Dashboard</li>
-
-            <li>Aktueller Monat</li>
-        </ul>
-
-    </mat-drawer>
-
-
-
-
-
-    <mat-toolbar color="primary">
-        <button mat-icon-button (click)="drawer.toggle()" class="example-icon">
-            <mat-icon>menu</mat-icon>
-        </button>
-
-        <span>My App</span>
-    </mat-toolbar>
-
-</mat-drawer-container> -->
