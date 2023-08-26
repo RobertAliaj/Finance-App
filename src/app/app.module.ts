@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +22,8 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { DialogDailyExpensesComponent } from './dialog-daily-expenses/dialog-daily-expenses.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { FixCostsComponent } from './fix-costs/fix-costs.component';
 
 
 
@@ -32,7 +34,8 @@ import { DialogDailyExpensesComponent } from './dialog-daily-expenses/dialog-dai
     DashboardComponent,
     MainComponent,
     SavingsComponent,
-    DialogDailyExpensesComponent
+    TransactionsComponent,
+    FixCostsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { DialogDailyExpensesComponent } from './dialog-daily-expenses/dialog-dai
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
+    FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
