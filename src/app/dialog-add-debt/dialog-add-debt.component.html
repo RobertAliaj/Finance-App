@@ -1,0 +1,17 @@
+<div>
+    <form>
+        <label for="expendituresName">To Whom:</label>
+        <input type="text" name="expendituresName" [(ngModel)]="debt.toWhom">
+
+        <label for="amount">Betrag:</label>
+        <input type="number" name="amount" [(ngModel)]="debt.amount">
+
+        <label for="date">Datum:</label>
+        <input type="date" name="date" [(ngModel)]="debt.date">c
+
+        <label for="description">Beschreibung:</label>
+        <input type="text" name="description" [(ngModel)]="debt.description">
+
+        <button type="button" (click)="addDebt()">Debt</button>
+    </form>
+</div>

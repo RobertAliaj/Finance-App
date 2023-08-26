@@ -1,4 +1,4 @@
-export class Debts {
+export class Debt {
 
     toWhom: string;  //Art der Transaktion(Ausgabe, Ersparnis, Investition)
     amount: number;

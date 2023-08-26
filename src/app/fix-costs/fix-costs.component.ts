@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class FixCostsComponent {
 
+
+  constructor(){
+
+  }
+
+  addFixCosts(){
+
+  }
+
+
+  changeFixCosts(){
+
+  }
+
+  
 }

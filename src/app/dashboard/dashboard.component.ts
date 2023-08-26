@@ -7,4 +7,40 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  currentBalance!: number;
+
+  constructor(){}
+
+
+  getAllTimeBalance(){
+    // Die gesamten Einkommen - die Gesamten Ausgaben
+  }
+
+
+  monthlyCashFlow(){
+    // Einnahmen und Ausgaben für den aktuellen Monat
+  }
+
+
+  getCurrentMonthlyBudget(){
+    // Die Einnahmen vom aktuellen Monat - die Ausgaben und die geplanten Ausgaben für den aktuellen Monat
+  }
+
+
+  lastTransactions(){
+    // Get the 3-4 last transactions
+  }
+
+
+  upcomingBills(){
+    // Die noch offenen transaktionen Ausgaben - geplant
+  }
+
+
+  addTransaction(){
+
+  }
+
+
+
 }

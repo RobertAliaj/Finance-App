@@ -24,6 +24,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { FixCostsComponent } from './fix-costs/fix-costs.component';
+import { DialogAddTransactionComponent } from './dialog-add-transaction/dialog-add-transaction.component';
+import { DialogAddDebtComponent } from './dialog-add-debt/dialog-add-debt.component';
 
 
 
@@ -35,7 +37,9 @@ import { FixCostsComponent } from './fix-costs/fix-costs.component';
     MainComponent,
     SavingsComponent,
     TransactionsComponent,
-    FixCostsComponent
+    FixCostsComponent,
+    DialogAddTransactionComponent,
+    DialogAddDebtComponent
   ],
   imports: [
     BrowserModule,
