@@ -1,17 +1,29 @@
-<div>
-    <form>
-        <label for="expendituresName">To Whom:</label>
-        <input type="text" name="expendituresName" [(ngModel)]="debt.toWhom">
+<form [formGroup]="debtForm" (ngSubmit)="addDebt()" class="center">
 
-        <label for="amount">Betrag:</label>
-        <input type="number" name="amount" [(ngModel)]="debt.amount">
-
-        <label for="date">Datum:</label>
-        <input type="date" name="date" [(ngModel)]="debt.date">c
-
-        <label for="description">Beschreibung:</label>
-        <input type="text" name="description" [(ngModel)]="debt.description">
-
-        <button type="button" (click)="addDebt()">Debt</button>
-    </form>
-</div>
+    <mat-form-field>
+      <mat-label>To Whom</mat-label>
+      <input matInput formControlName="toWhom">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input matInput formControlName="amount">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <button type="submit">Schulden hinzufügen</button>
+  
+  </form>
+  

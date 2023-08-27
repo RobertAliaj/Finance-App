@@ -1,50 +1,33 @@
-<!-- <div>
-    <form>
-        <label for="expendituresName">Ausgaben-Name:</label>
-        <input type="text" name="expendituresName" [(ngModel)]="transaction.transactionType">
-
-        <label for="amount">Betrag:</label>
-        <input type="number" name="amount" [(ngModel)]="transaction.amount">
-
-        <label for="date">Datum:</label>
-        <input type="date" name="date" [(ngModel)]="transaction.date">c
-
-        <label for="description">Beschreibung:</label>
-        <input type="text" name="description" [(ngModel)]="transaction.description">
-
-        <button type="button" (click)="addTransaction()">Transaktion hinzufügen</button>
-    </form>
-</div> -->
-
-<form style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<form [formGroup]="transactionForm" (ngSubmit)="addTransaction()" class="center">
 
     <mat-form-field>
         <mat-label>Category</mat-label>
-        <mat-select>
-            <mat-option value="one">Income</mat-option>
-            <mat-option value="two">Cost</mat-option>
-            <mat-option value="three">Invest</mat-option>
-            <mat-option value="four">Savings</mat-option>
-            <mat-option value="five">Debt</mat-option>
-        </mat-select>
+        <mat-select formControlName="transactionType">
+            <mat-option value="Income">Income</mat-option>
+            <mat-option value="Cost">Cost</mat-option>
+            <mat-option value="Invest">Invest</mat-option>
+            <mat-option value="Savings">Savings</mat-option>
+            <mat-option value="Debt">Debt</mat-option> </mat-select>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Amount</mat-label>
-        <input matInput name="amount" [(ngModel)]="transaction.amount">
+        <input matInput formControlName="amount">
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Description</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput formControlName="description"></textarea>
     </mat-form-field>
 
-    <!-- Das Datum soll automatisch ausgefüllt werden mit dem Heutigen Datum, es sei denn man möchte es selber ändern -->
     <mat-form-field>
         <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" formControlName="date">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+
+    <button type="submit">Transaktion hinzufügen</button>
+
 </form>
