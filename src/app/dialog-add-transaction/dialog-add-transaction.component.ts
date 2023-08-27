@@ -10,7 +10,6 @@ import { Transaction } from 'src/models/transaction.class';
 })
 export class DialogAddTransactionComponent {
 
-
   transaction: Transaction = new Transaction();
 
   constructor(private firestore: Firestore) {

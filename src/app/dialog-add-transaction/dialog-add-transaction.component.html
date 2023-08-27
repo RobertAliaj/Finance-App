@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <form>
         <label for="expendituresName">Ausgaben-Name:</label>
         <input type="text" name="expendituresName" [(ngModel)]="transaction.transactionType">
@@ -14,4 +14,37 @@
 
         <button type="button" (click)="addTransaction()">Transaktion hinzufügen</button>
     </form>
-</div>
+</div> -->
+
+<form style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select>
+            <mat-option value="one">Income</mat-option>
+            <mat-option value="two">Cost</mat-option>
+            <mat-option value="three">Invest</mat-option>
+            <mat-option value="four">Savings</mat-option>
+            <mat-option value="five">Debt</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput name="amount" [(ngModel)]="transaction.amount">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+
+    <!-- Das Datum soll automatisch ausgefüllt werden mit dem Heutigen Datum, es sei denn man möchte es selber ändern -->
+    <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</form>

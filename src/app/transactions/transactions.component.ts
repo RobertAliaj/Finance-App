@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./transactions.component.scss']
 })
 export class TransactionsComponent {
+
+  constructor() { }
+
+  getAllTransactions() { }
+
 }
