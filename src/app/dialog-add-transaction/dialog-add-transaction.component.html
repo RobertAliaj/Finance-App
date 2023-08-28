@@ -1,33 +1,87 @@
 <form [formGroup]="transactionForm" (ngSubmit)="addTransaction()" class="center">
 
+    <!-- Category -->
     <mat-form-field>
         <mat-label>Category</mat-label>
         <mat-select formControlName="transactionType">
             <mat-option value="Income">Income</mat-option>
-            <mat-option value="Cost">Cost</mat-option>
+            <mat-option value="Cost">Variable Costs</mat-option>
             <mat-option value="Invest">Invest</mat-option>
             <mat-option value="Savings">Savings</mat-option>
-            <mat-option value="Debt">Debt</mat-option> </mat-select>
+            <mat-option value="Debt">Debt</mat-option>
+        </mat-select>
     </mat-form-field>
 
+    <!-- Only if "Income" is chosen -->
+    <mat-form-field *ngIf="transactionForm.get('transactionType')?.value === 'Income'">
+        <mat-label>Type of Income</mat-label>
+        <mat-select formControlName="incomeType">
+            <mat-option value="Salary">Salary</mat-option>
+            <mat-option value="Second Job">Second Job</mat-option>
+            <mat-option value="Dividends">Dividends</mat-option>
+            <mat-option value="Stock Market">Stock Market</mat-option>
+            <mat-option value="Crypto">Crypto</mat-option>
+            <mat-option value="Other">Other</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- Only if "Variable Costs" is chosen -->
+    <mat-form-field *ngIf="transactionForm.get('transactionType')?.value === 'Cost'">
+        <mat-label>Variable Cost Categories</mat-label>
+        <mat-select formControlName="costType">
+            <mat-option value="Transport">Transport</mat-option>
+            <mat-option value="Groceries">Groceries</mat-option>
+            <mat-option value="Fun">Fun</mat-option>
+            <mat-option value="Fun"></mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- Only if "Invest" is chosen -->
+    <mat-form-field *ngIf="transactionForm.get('transactionType')?.value === 'Invest'">
+        <mat-label>Type of Investment</mat-label>
+        <mat-select formControlName="investmentType">
+            <mat-option value="Stocks">Stocks</mat-option>
+            <mat-option value="Crypto">Crypto</mat-option>
+            <mat-option value="Others">Others</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <!-- Only if "Debt" is chosen -->
+    <mat-form-field *ngIf="transactionForm.get('transactionType')?.value === 'Debt'">
+        <mat-label>Name of Creditor</mat-label>
+        <input matInput formControlName="creditorName">
+    </mat-form-field>
+
+
+    <!-- Amount -->
     <mat-form-field>
         <mat-label>Amount</mat-label>
         <input matInput formControlName="amount">
     </mat-form-field>
 
+    <!-- Only if "Income, Cost, Savings is choosen" -->
+    <mat-form-field *ngIf="['Income', 'Cost', 'Savings'].includes(transactionForm.get('transactionType')?.value)">
+        <mat-label>Payment Method</mat-label>
+        <mat-select formControlName="paymentMethod">
+            <mat-option value="Cash">Cash</mat-option>
+            <mat-option value="Card">Card</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- Description -->
     <mat-form-field>
         <mat-label>Description</mat-label>
         <textarea matInput formControlName="description"></textarea>
     </mat-form-field>
 
+    <!-- Date -->
     <mat-form-field>
         <mat-label>Date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="date">
-        <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <button type="submit">Transaktion hinzufügen</button>
-
 </form>

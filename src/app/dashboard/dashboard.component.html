@@ -1,3 +1,59 @@
-<mat-card class="mat-card">
-    <mat-card-content>Simple card</mat-card-content>
-</mat-card>
+<div class="content-container">
+
+    <mat-card class="mat-card">
+        <mat-card-title>Balance</mat-card-title>
+        <mat-card-content>Amount Total:</mat-card-content>
+        <mat-card-content>Amount Cash:</mat-card-content>
+        <mat-card-content>Amount Card:</mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-card">
+        <mat-card-title>Debt</mat-card-title>
+        <mat-card-content>Name:</mat-card-content>
+        <mat-card-content>Amount:</mat-card-content>
+        <mat-card-content>Description</mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-card">
+        <mat-card-title>Savings</mat-card-title>
+        <mat-card-content>Currency: (Cash or Card)</mat-card-content>
+        <mat-card-content>Amount:</mat-card-content>
+        <mat-card-content>Date:</mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-card">
+        <mat-card-title>Costs</mat-card-title>
+        <mat-card-content>Category:</mat-card-content>
+        <mat-card-content>Currency: (Cash or Card)</mat-card-content>
+        <mat-card-content>Amount:</mat-card-content>
+        <mat-card-content>Date:</mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-card">
+        <mat-card-title>Invest</mat-card-title>
+        <mat-card-content>Category:</mat-card-content>
+        <mat-card-content>Amount:</mat-card-content>
+        <mat-card-content>Date:</mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-card">
+        <mat-card-title>Income</mat-card-title>
+        <mat-card-content>Amount Total:</mat-card-content>
+        <mat-card-content>Amount Cash:</mat-card-content>
+        <mat-card-content>Amount Card:</mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-card">
+        <mat-card-title>Fix Costs</mat-card-title>
+        <mat-card-content>Amount Total:</mat-card-content>
+        <mat-card-content>Option 1:</mat-card-content>
+        <mat-card-content>Option 2:</mat-card-content>
+        <mat-card-content>Option 3</mat-card-content>
+        <mat-card-content>Option 4:</mat-card-content>
+    </mat-card>
+
+</div>
+
+<button mat-fab color="primary" class="add-button" (click)="openAddDebtDialog()">
+    <mat-icon>add</mat-icon>
+</button>

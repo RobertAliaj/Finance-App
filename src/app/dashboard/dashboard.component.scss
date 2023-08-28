@@ -1,4 +1,16 @@
-.mat-card{
+.mat-card {
     width: 200px;
     height: 200px;
+}
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.add-button {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
 }

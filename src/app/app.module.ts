@@ -25,13 +25,15 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { FixCostsComponent } from './fix-costs/fix-costs.component';
 import { DialogAddTransactionComponent } from './dialog-add-transaction/dialog-add-transaction.component';
-import { DialogAddDebtComponent } from './dialog-add-debt/dialog-add-debt.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
 
 
 
@@ -48,7 +50,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     TransactionsComponent,
     FixCostsComponent,
     DialogAddTransactionComponent,
-    DialogAddDebtComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +68,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatDialogModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
