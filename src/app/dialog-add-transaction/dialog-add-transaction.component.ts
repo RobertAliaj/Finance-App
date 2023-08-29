@@ -38,7 +38,6 @@ export class DialogAddTransactionComponent {
 
   constructor(private firestore: Firestore, private fb: FormBuilder, private transactionService: TransactionServiceService) {
     this.initForm();
-
   }
 
 
@@ -57,6 +56,20 @@ export class DialogAddTransactionComponent {
   }
 
 
+  async addNewTransaction() {
+    this.getValuesFromInputs();
+
+    const transaction = this.transactionTypeMap[this.transaction.transactionType];
+
+    if (transaction) {
+      this.setValuesForType(transaction);
+      console.log(transaction.customToJson());
+      const transactionsCollection = collection(this.firestore, 'transactions');
+      await addDoc(transactionsCollection, transaction.customToJson());
+    }
+  }
+
+
   getValuesFromInputs() {
     this.transaction = this.transactionForm.value;
   }
@@ -70,58 +83,5 @@ export class DialogAddTransactionComponent {
       }
     }
   }
-
-
-
-  async addNewTransaction() {
-    this.getValuesFromInputs();
-
-    const transaction = this.transactionTypeMap[this.transaction.transactionType];
-    console.log(transaction);
-
-    if (transaction) {
-      this.setValuesForType(transaction);
-      const transactionsCollection = collection(this.firestore, 'transactions');
-      await addDoc(transactionsCollection, transaction.customToJson());
-    }
-  }
-
-
-  // async addNewTransaction() {
-  //   this.getValuesFromInputs();
-  //   let transaction;
-
-  //   if (this.transaction.transactionType === 'Income') {
-  //     this.setValuesForType(this.income);
-  //     transaction = this.income;
-  //   }
-
-  //   if (this.transaction.transactionType === 'Debt') {
-  //     this.setValuesForType(this.debt);
-  //     transaction = this.debt;
-  //   }
-
-  //   if (this.transaction.transactionType === 'Invest') {
-  //     this.setValuesForType(this.investment);
-  //     transaction = this.investment;
-  //   }
-
-  //   if (this.transaction.transactionType === 'Cost') {
-  //     this.setValuesForType(this.variableCosts);
-  //     transaction = this.variableCosts;
-  //   }
-
-  //   if (this.transaction.transactionType === 'Savings') {
-  //     this.setValuesForType(this.savings);
-  //     transaction = this.savings;
-  //   }
-
-
-  //   if (transaction) {
-  //     const transactionsCollection = collection(this.firestore, 'transactions');
-  //     await addDoc(transactionsCollection, transaction.customToJson());
-  //   }
-  // }
-
 
 }

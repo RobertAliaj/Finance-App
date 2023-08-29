@@ -42,20 +42,10 @@ export class DashboardComponent {
   }
 
 
-  addTransaction() {
-
-  }
-
-
-  /**
-  * Open the EditAdress Dialog and pass the User Object and userId
-  */
   openAddDebtDialog() {
     const dialog = this.dialog.open(DialogAddTransactionComponent);
     // dialog.componentInstance.user = new User(this.user.toJson());
     // dialog.componentInstance.userId = this.userId;
   }
 
-  // Man macht die App auf und wird dann aufgefordert die Einnahmen von dem Monat in dem man sich befindet einzugeben. 
-  // Dann kann auch selber aussuchen ob man auch noch seine Ausgaben eingeben möchte
 }
