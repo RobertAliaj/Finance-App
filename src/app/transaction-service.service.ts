@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Newtransaction } from '../models/transactions-new.class';
+import { Transaction } from '../models/transaction.class';
 import { Firestore, addDoc, collection, getDoc } from '@angular/fire/firestore';
 
 
@@ -8,5 +8,14 @@ import { Firestore, addDoc, collection, getDoc } from '@angular/fire/firestore';
 })
 export class TransactionServiceService {
 
+  transaction: Transaction = new Transaction();
+
   constructor(private firestore: Firestore) { }
+
+  addTransaction(transaction: any){
+    const transactionsCollection = collection(this.firestore, 'transactions');
+    addDoc(transactionsCollection, transaction.toJson()).then(async (result) => {
+      const docSnap = await getDoc(result);
+    });
+  }
 }
