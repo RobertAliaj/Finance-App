@@ -32,6 +32,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogAddFixcostsComponent } from './dialog-add-fixcosts/dialog-add-fixcosts.component';
+import { IncomeHistoryComponent } from './income-history/income-history.component';
 
 
 
@@ -50,6 +52,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     TransactionsComponent,
     FixCostsComponent,
     DialogAddTransactionComponent,
+    DialogAddFixcostsComponent,
+    IncomeHistoryComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Firestore, addDoc, collection, getDoc } from '@angular/fire/firestore';
 import { Transaction } from 'src/models/transaction.class';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TransactionServiceService } from '../transaction-service.service';
 
 import { Income } from 'src/models/income.class';
 import { Debt } from 'src/models/debt.class';
@@ -36,7 +35,7 @@ export class DialogAddTransactionComponent {
     'Savings': this.savings
   };
 
-  constructor(private firestore: Firestore, private fb: FormBuilder, private transactionService: TransactionServiceService) {
+  constructor(private firestore: Firestore, private fb: FormBuilder) {
     this.initForm();
   }
 

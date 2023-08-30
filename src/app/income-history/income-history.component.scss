@@ -1,10 +1,10 @@
-.mat-card {
-    width: 200px;
-    height: 200px;
-}
-
 .content-container {
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
+}
+
+.mat-card{
+    width: 250px;
+    height: 200px;
 }

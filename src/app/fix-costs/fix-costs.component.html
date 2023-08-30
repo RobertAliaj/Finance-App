@@ -1,33 +1,14 @@
-<!-- fix-costs-form.component.html -->
-<form [formGroup]="fixCostsForm" (ngSubmit)="addFixCosts()" class="center form">
-    <mat-form-field>
-      <mat-label>Name der Ausgabe</mat-label>
-      <input matInput formControlName="name">
-    </mat-form-field>
-  
-    <mat-form-field>
-      <mat-label>Betrag</mat-label>
-      <input matInput formControlName="amount" type="number">
-    </mat-form-field>
-  
-    <mat-form-field>
-      <mat-label>Fälligkeitsdatum</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date">
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-  
-    <mat-form-field>
-      <mat-label>Zahlungsintervall</mat-label>
-      <mat-select formControlName="paymentInterval">
-        <mat-option value="monatlich">Monatlich</mat-option>
-        <mat-option value="jährlich">Jährlich</mat-option>
-        <!-- Weitere Optionen -->
-      </mat-select>
-    </mat-form-field>
-  
-    <!-- <mat-checkbox formControlName="autoRenewal">Automatische Erneuerung</mat-checkbox> -->
-  
-    <button type="submit">Feste Ausgabe hinzufügen</button>
-  </form>
-  
+<div class="content-container">
+
+  <mat-card *ngFor="let cost of allFixCosts" class="mat-card">
+    <mat-card-title>{{ cost.name }}</mat-card-title>
+    <mat-card-content>{{ cost.amount.toFixed(2) }} €</mat-card-content>
+    <mat-card-content>{{ cost.date }}</mat-card-content>
+    <mat-card-content>{{ cost.paymentInterval }}</mat-card-content>
+  </mat-card>
+
+</div>
+
+<button mat-fab color="primary" class="add-button" (click)="openAddDFixCostDialog()">
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Firestore, addDoc, collection } from '@angular/fire/firestore';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FixCosts } from 'src/models/fix-costs.class';
+import { Firestore, collection, onSnapshot } from '@angular/fire/firestore';
+import { DialogAddFixcostsComponent } from '../dialog-add-fixcosts/dialog-add-fixcosts.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -11,43 +12,45 @@ import { FixCosts } from 'src/models/fix-costs.class';
 })
 export class FixCostsComponent {
 
-  fixCostsForm!: FormGroup;
-  fixCosts: FixCosts = new FixCosts();
+  allFixCosts: any[] = [];
 
-  constructor(private fb: FormBuilder, private firestore: Firestore) {
-    this.initForm();
+  constructor(private firestore: Firestore, private dialog: MatDialog) {
+    this.getFixCosts();
   }
 
-  initForm() {
-    this.fixCostsForm = this.fb.group({
-      name: ['', Validators.required],
-      amount: ['', [Validators.required, Validators.min(1)]],
-      date: [new Date(), Validators.required],
-      paymentInterval: ['monatlich', Validators.required],
-      // autoRenewal: [false]
+
+  getFixCosts() {
+    const collectionRef = collection(this.firestore, 'fixCosts');
+    onSnapshot(collectionRef, async (snapshot) => {
+      let changes = snapshot.docs.map(doc => ({ costId: doc.id, ...doc.data() }));
+      this.allFixCosts = changes;
+      this.formattDate();
+      // this.allTransactions.sort((a, b) => b.timeStamp - a.timeStamp);
+      // this.filteredTransactions = this.allTransactions;
+      // this.highlightNewTransactions();
     });
   }
 
 
-  getValuesFromInput() {
-    this.fixCosts.name = this.fixCostsForm.get('name')?.value;
-    this.fixCosts.amount = this.fixCostsForm.get('amount')?.value;
-    this.fixCosts.date = this.fixCostsForm.get('date')?.value;
-    this.fixCosts.paymentInterval = this.fixCostsForm.get('paymentInterval')?.value;
+  formattDate() {
+    this.allFixCosts.forEach(cost => {
+      let timestamp = cost.date.seconds;
+      let date = new Date(timestamp * 1000);
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let formattedDay = day < 10 ? '0' + day : day;
+      let formattedMonth = month < 10 ? '0' + month : month;
+      let formattedDate = formattedDay + '.' + formattedMonth + '.' + year;
+      cost.date = formattedDate;
+    });
   }
 
 
-  async addFixCosts() {
-    this.getValuesFromInput();
-    console.log(this.fixCosts.toJson());
-    const fixCostsCollection = collection(this.firestore, 'fixCosts');
-    await addDoc(fixCostsCollection, this.fixCosts.toJson());
+  openAddDFixCostDialog() {
+    const dialog = this.dialog.open(DialogAddFixcostsComponent);
   }
 
 
-  changeFixCosts() {
-
-  }
-
-
+  changeFixCosts() { }
 }

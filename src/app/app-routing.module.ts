@@ -5,11 +5,13 @@ import { SavingsComponent } from './savings/savings.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { DialogAddTransactionComponent } from './dialog-add-transaction/dialog-add-transaction.component';
 import { FixCostsComponent } from './fix-costs/fix-costs.component';
+import { IncomeHistoryComponent } from './income-history/income-history.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'transaction', component: DialogAddTransactionComponent },
   { path: 'fixCosts', component: FixCostsComponent },
+  { path: 'income', component: IncomeHistoryComponent }
 ];
 
 @NgModule({
